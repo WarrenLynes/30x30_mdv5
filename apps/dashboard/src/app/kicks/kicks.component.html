@@ -1,0 +1,21 @@
+<div class="container">
+
+  <div class="col-50">
+    <mdv5-list
+      [data]="shoes$ | async"
+      [selected]="selectedShoe$ | async"
+      (selectt)="selectShoe($event)"
+      (delete)="deleteShoe($event)"
+    ></mdv5-list>
+  </div>
+
+  <div class="col-50">
+    <mdv5-detail
+      *ngIf="showDetail"
+      [selected]="selectedShoe$ | async"
+      (saved)="saveShoe($event)"
+      (cancelled)="cancel()">
+      ></mdv5-detail>
+  </div>
+
+</div>
